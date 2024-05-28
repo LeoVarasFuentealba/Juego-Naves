@@ -1,0 +1,9 @@
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\bin\Debug\naves_game.exe.config
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\bin\Debug\naves_game.exe
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\bin\Debug\naves_game.pdb
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\obj\Debug\naves_game.csproj.AssemblyReference.cache
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\obj\Debug\naves_game.csproj.CoreCompileInputs.cache
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\obj\Debug\naves_game.exe
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\obj\Debug\naves_game.pdb
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\bin\Debug\System.Threading.AccessControl.dll
+C:\Users\leova\OneDrive\Escritorio\23-24\Programacion\C# (auto)\naves_game\naves_game\obj\Debug\naves_game.csproj.CopyComplete
