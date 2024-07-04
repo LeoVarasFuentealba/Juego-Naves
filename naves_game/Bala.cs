@@ -73,7 +73,7 @@ namespace naves_game
             }
         }
 
-        public bool Mover(int velocidad, int limite)
+        public bool Mover(int velocidad, int limite, List<Enemigo> enemigos)
         {
             if (DateTime.Now > tiempo.AddMilliseconds(30))
             {
@@ -87,12 +87,52 @@ namespace naves_game
                         {
                             return true;
                         }
+
+                        foreach (Enemigo enemigo in enemigos)
+                        {
+                            foreach(Point posicionE in enemigo.PosicionesEnemigo)
+                            {
+                                if(posicionE.X == Posicion.X && posicionE.Y == Posicion.Y)
+                                {
+                                    enemigo.Vida -= 7;
+                                    if (enemigo.Vida <= 0)
+                                    {
+                                        enemigo.Vida = 0;
+                                        enemigo.Vivo = false;
+                                    }
+
+                                    return true;
+                                }
+                            }
+                        }
+
                         break;
                     case TipoBala.Especial:
                         Posicion = new Point(Posicion.X, Posicion.Y - velocidad);
                         if (Posicion.Y <= limite)
                         {
                             return true;
+                        }
+
+                        foreach (Enemigo enemigo in enemigos)
+                        {
+                            foreach (Point posicionE in enemigo.PosicionesEnemigo)
+                            {
+                                foreach(Point posicionB in PosicionesBala)
+                                {
+                                    if (posicionE.X == posicionB.X && posicionE.Y == posicionB.Y)
+                                    {
+                                        enemigo.Vida -= 25;
+                                        if (enemigo.Vida <= 0)
+                                        {
+                                            enemigo.Vida = 0;
+                                            enemigo.Vivo = false;
+                                        }
+
+                                        return true;
+                                    }
+                                } 
+                            }
                         }
                         break;
                 }

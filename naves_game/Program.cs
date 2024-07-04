@@ -28,6 +28,10 @@ namespace NavesGame
             enemigo2 = new Enemigo(new Point(100, 7), ConsoleColor.Red, ventana, TipoEnemigo.Normal, nave);
             enemigo2.Dibujar();
             boss1 = new Enemigo(new Point(27, 7), ConsoleColor.Magenta, ventana, TipoEnemigo.Boss, nave);
+
+            nave.Enemigos.Add(enemigo1);
+            nave.Enemigos.Add(enemigo2);
+            nave.Enemigos.Add(boss1);
         }
 
         public void Game()

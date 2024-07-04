@@ -19,6 +19,7 @@ namespace naves_game
         public float SobreCarga { get; set; }
         public bool SobreCargaCondicion { get; set; }
         public float BalaEspecial { get; set; }
+        public List<Enemigo> Enemigos { get; set; }
         public Nave(Point posicion, ConsoleColor color, Ventana ventana)
         {
             Posicion = posicion;
@@ -27,6 +28,7 @@ namespace naves_game
             Vida = 100;
             PosicionesNave = new List<Point>();
             Balas = new List<Bala>();
+            Enemigos = new List<Enemigo>();
         }
 
         public void Dibujar()
@@ -219,7 +221,7 @@ namespace naves_game
         {
             for (int i = 0; i < Balas.Count; i++)
             {
-                if (Balas[i].Mover(1, VentanaC.limiteSuperior.Y))
+                if (Balas[i].Mover(1, VentanaC.limiteSuperior.Y,Enemigos))
                 {
                     Balas.Remove(Balas[i]);
                 }
