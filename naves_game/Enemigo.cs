@@ -108,7 +108,13 @@ namespace naves_game
         public void MuerteBoss()
         {
             Console.ForegroundColor = Color;
+
+            foreach (Bala item in Balas)
+            {
+                item.Borrar();
+            }
             Balas.Clear();
+
             foreach (Point item in PosicionesEnemigo)
             {
                 Console.SetCursorPosition(item.X, item.Y);
@@ -122,12 +128,6 @@ namespace naves_game
                 Thread.Sleep(200);
             }
             PosicionesEnemigo.Clear();
-
-            foreach (Bala item in Balas)
-            {
-                item.Borrar();
-            }
-            
         }
 
         public void MuerteNormal()
@@ -142,12 +142,6 @@ namespace naves_game
             Console.Write("████");
             Console.SetCursorPosition(x, y + 2);
             Console.Write("▀  ▀");
-            Console.SetCursorPosition(x + 1, y);
-            Console.Write(" ");
-            Console.SetCursorPosition(x, y + 1);
-            Console.Write(" ");
-            Console.SetCursorPosition(x, y + 2);
-            Console.Write(" ");
             PosicionesEnemigo.Clear();
 
             foreach(Bala item in Balas)

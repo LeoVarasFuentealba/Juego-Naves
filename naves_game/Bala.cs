@@ -75,7 +75,7 @@ namespace naves_game
 
         public bool Mover(int velocidad, int limite, List<Enemigo> enemigos)
         {
-            if (DateTime.Now > tiempo.AddMilliseconds(30))
+            if (DateTime.Now > tiempo.AddMilliseconds(20))
             {
                 Borrar();
 
@@ -94,7 +94,7 @@ namespace naves_game
                             {
                                 if(posicionE.X == Posicion.X && posicionE.Y == Posicion.Y)
                                 {
-                                    enemigo.Vida -= 7;
+                                    enemigo.Vida -= 5;
                                     if (enemigo.Vida <= 0)
                                     {
                                         enemigo.Vida = 0;
@@ -123,7 +123,7 @@ namespace naves_game
                                 {
                                     if (posicionE.X == posicionB.X && posicionE.Y == posicionB.Y)
                                     {
-                                        enemigo.Vida -= 25;
+                                        enemigo.Vida -= 35;
                                         if (enemigo.Vida <= 0)
                                         {
                                             enemigo.Vida = 0;
@@ -147,7 +147,7 @@ namespace naves_game
         }
         public bool Mover(int velocidad, int limite, Nave nave)
         {
-            if (DateTime.Now > tiempo.AddMilliseconds(30))
+            if (DateTime.Now > tiempo.AddMilliseconds(20))
             {
                 Borrar();
 

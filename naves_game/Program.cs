@@ -39,8 +39,9 @@ namespace NavesGame
         {
             while (jugar)
             {
-                if (!enemigo1.Vivo && !enemigo2.Vivo){
+                if (!enemigo1.Vivo && !enemigo2.Vivo && !bossFinal){
                     bossFinal = true;
+                    ventana.Peligro();
                 }
                 if (bossFinal)
                 {

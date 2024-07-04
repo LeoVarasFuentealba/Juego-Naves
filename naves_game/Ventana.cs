@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Threading;
 
 namespace naves_game
 {
@@ -35,7 +36,6 @@ namespace naves_game
         public void DibujarMarco()
         {
             Console.ForegroundColor = ConsoleColor.Green;
-
             for (int i = limiteSuperior.X; i <= limiteInferior.X; i++)
             {
                 Console.SetCursorPosition(i, limiteInferior.Y);
@@ -60,7 +60,29 @@ namespace naves_game
             Console.Write("╗");
             Console.SetCursorPosition(limiteInferior.X, limiteInferior.Y);
             Console.Write("╝");
-               
+        }
+
+        public void Peligro()
+        {
+            for(int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 10; j++)
+                {
+                    Console.SetCursorPosition(limiteSuperior.X + 1, limiteSuperior.Y + (j + 1));
+                    for (int x = 0; x < 105; x++)
+                    {
+                        Console.Write(" ");
+                    }
+                }
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.SetCursorPosition(limiteInferior.X / 2 - 5, limiteInferior.Y / 2);
+                Console.Write("¡¡PELIGRO!!");
+                Thread.Sleep(200);
+                Console.SetCursorPosition(limiteInferior.X / 2 - 5, limiteInferior.Y / 2);
+                Console.Write("            ");
+                Thread.Sleep(200);
+            }
         }
     }
 }

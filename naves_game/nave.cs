@@ -175,7 +175,7 @@ namespace naves_game
             }
             else
             {
-                SobreCarga -= 0.001f;
+                SobreCarga -= 0.003f;
             }
             if (SobreCarga <= 50)
             {
@@ -201,7 +201,7 @@ namespace naves_game
                 BalaEspecial = 100;
             }
             else {
-                BalaEspecial += 0.0007f;
+                BalaEspecial += 0.006f;
             }
         }
 
