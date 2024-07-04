@@ -35,7 +35,10 @@ namespace NavesGame
             while (jugar)
             {
                 enemigo1.Mover();
+                enemigo1.Informacion(70);
                 enemigo2.Mover();
+                enemigo2.Informacion(90);
+
                 nave.Mover(2);
                 nave.Disparar();
                 if (nave.Vida <= 0)

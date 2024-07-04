@@ -290,5 +290,12 @@ namespace naves_game
                
             }
         }
+
+        public void Informacion(int distanciaX)
+        {
+            Console.ForegroundColor = Color;
+            Console.SetCursorPosition(VentanaC.limiteSuperior.X + distanciaX, VentanaC.limiteSuperior.Y - 1);
+            Console.Write("Enemigo: " + (int) Vida + " %  ");
+        }
     }
 }
