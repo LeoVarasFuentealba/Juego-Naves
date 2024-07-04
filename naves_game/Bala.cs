@@ -95,13 +95,33 @@ namespace naves_game
                             return true;
                         }
                         break;
-                    case TipoBala.Enemigo:
-                        Posicion = new Point(Posicion.X, Posicion.Y + velocidad);
-                        if (Posicion.Y >= limite)
-                        {
-                            return true;
-                        }
-                        break;
+                }
+
+                Dibujar();
+                tiempo = DateTime.Now;
+            }
+
+            return false;
+        }
+        public bool Mover(int velocidad, int limite, Nave nave)
+        {
+            if (DateTime.Now > tiempo.AddMilliseconds(30))
+            {
+                Borrar();
+
+                Posicion = new Point(Posicion.X, Posicion.Y + velocidad);
+                if (Posicion.Y >= limite)
+                {
+                    return true;
+                }
+
+                foreach(Point posicionN in nave.PosicionesNave)
+                {
+                    if(posicionN.X == Posicion.X && posicionN.Y == Posicion.Y)
+                    {
+                        nave.Vida -= 5;
+                        return true;
+                    }
                 }
 
                 Dibujar();

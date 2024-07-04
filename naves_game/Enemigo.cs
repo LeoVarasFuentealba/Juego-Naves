@@ -25,6 +25,7 @@ namespace naves_game
         public ConsoleColor Color { get; set; }
         public TipoEnemigo TipoEnemigoE { get; set; }
         public List<Point> PosicionesEnemigo { get; set; }
+        public Nave NaveC { get; set; }
         public List<Bala> Balas { get; set; }
         private Direccion direccion_act;
         private DateTime tiempo_direccion;
@@ -34,7 +35,7 @@ namespace naves_game
         private float tiempo_bala_random;
 
         public Enemigo(Point posicion, ConsoleColor color, Ventana ventana,
-            TipoEnemigo tipoEnemigo)
+            TipoEnemigo tipoEnemigo, Nave nave)
         {
             Posicion = posicion;
             Color = color;
@@ -50,6 +51,7 @@ namespace naves_game
             Balas = new List<Bala>();
             tiempo_bala = DateTime.Now;
             tiempo_bala_random = 200;
+            NaveC = nave;
         }
         public void Dibujar()
         {
@@ -283,7 +285,7 @@ namespace naves_game
         {
             for (int i = 0; i < Balas.Count; i++)
             {
-                if (Balas[i].Mover(1, VentanaC.limiteInferior.Y))
+                if (Balas[i].Mover(1, VentanaC.limiteInferior.Y, NaveC))
                 {
                     Balas.Remove(Balas[i]);
                 }
