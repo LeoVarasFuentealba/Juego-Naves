@@ -92,6 +92,70 @@ namespace naves_game
             PosicionesEnemigo.Add(new Point(x + 3, y+2));
         }
 
+        public void Muerte()
+        {
+            if(TipoEnemigoE == TipoEnemigo.Normal)
+            {
+                MuerteNormal();
+                
+            }
+            if(TipoEnemigoE == TipoEnemigo.Boss)
+            {
+                MuerteBoss();
+            }
+
+        }
+        public void MuerteBoss()
+        {
+            Console.ForegroundColor = Color;
+            Balas.Clear();
+            foreach (Point item in PosicionesEnemigo)
+            {
+                Console.SetCursorPosition(item.X, item.Y);
+                Console.Write("█");
+                Thread.Sleep(200);
+            }
+            foreach(Point item in PosicionesEnemigo)
+            {
+                Console.SetCursorPosition(item.X, item.Y);
+                Console.Write(" ");
+                Thread.Sleep(200);
+            }
+            PosicionesEnemigo.Clear();
+
+            foreach (Bala item in Balas)
+            {
+                item.Borrar();
+            }
+            
+        }
+
+        public void MuerteNormal()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            int x = Posicion.X;
+            int y = Posicion.Y;
+
+            Console.SetCursorPosition(x + 1, y);
+            Console.Write("▄▄Zzz");
+            Console.SetCursorPosition(x, y + 1);
+            Console.Write("████");
+            Console.SetCursorPosition(x, y + 2);
+            Console.Write("▀  ▀");
+            Console.SetCursorPosition(x + 1, y);
+            Console.Write(" ");
+            Console.SetCursorPosition(x, y + 1);
+            Console.Write(" ");
+            Console.SetCursorPosition(x, y + 2);
+            Console.Write(" ");
+            PosicionesEnemigo.Clear();
+
+            foreach(Bala item in Balas)
+            {
+                item.Borrar();
+            }
+            Balas.Clear();
+        }
         public void DibujoBoss()
         {
             int y, x;
@@ -118,11 +182,10 @@ namespace naves_game
 
             PosicionesEnemigo.Add(new Point(x, y + 1));
             PosicionesEnemigo.Add(new Point(x + 1, y + 1));
-            PosicionesEnemigo.Add(new Point(x + 2, y + 1));
             PosicionesEnemigo.Add(new Point(x + 3, y + 1));
             PosicionesEnemigo.Add(new Point(x + 4, y + 1));
-            PosicionesEnemigo.Add(new Point(x + 5, y + 1));
             PosicionesEnemigo.Add(new Point(x + 6, y + 1));
+            PosicionesEnemigo.Add(new Point(x + 7, y + 1));
 
             PosicionesEnemigo.Add(new Point(x, y + 2));
             PosicionesEnemigo.Add(new Point(x + 1, y + 2));
@@ -145,6 +208,13 @@ namespace naves_game
         public void Mover()
         {
             int tiempo = 60;
+
+            if (!Vivo)
+            {
+                Muerte();
+                return;
+            }
+
             if (TipoEnemigoE == TipoEnemigo.Boss)
             {
                 tiempo = 50;

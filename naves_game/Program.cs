@@ -13,6 +13,7 @@ namespace NavesGame
         Ventana ventana;
         Nave nave;
         bool jugar = true;
+        bool bossFinal = false;
         Enemigo enemigo1;
         Enemigo enemigo2;
         Enemigo boss1;
@@ -38,11 +39,22 @@ namespace NavesGame
         {
             while (jugar)
             {
-                enemigo1.Mover();
-                enemigo1.Informacion(70);
-                enemigo2.Mover();
-                enemigo2.Informacion(90);
-
+                if (!enemigo1.Vivo && !enemigo2.Vivo){
+                    bossFinal = true;
+                }
+                if (bossFinal)
+                {
+                    boss1.Mover();
+                    boss1.Informacion(94);
+                }
+                else
+                {
+                    enemigo1.Mover();
+                    enemigo1.Informacion(62);
+                    enemigo2.Mover();
+                    enemigo2.Informacion(78);
+                }
+ 
                 nave.Mover(2);
                 nave.Disparar();
                 if (nave.Vida <= 0)

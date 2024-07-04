@@ -99,6 +99,7 @@ namespace naves_game
                                     {
                                         enemigo.Vida = 0;
                                         enemigo.Vivo = false;
+                                        enemigo.Muerte();
                                     }
 
                                     return true;
@@ -127,6 +128,7 @@ namespace naves_game
                                         {
                                             enemigo.Vida = 0;
                                             enemigo.Vivo = false;
+                                            enemigo.Muerte();
                                         }
 
                                         return true;
